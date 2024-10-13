@@ -7,8 +7,8 @@ requests
 beautifulsoup4==4.12.3
 matplotlib==3.9.2
 IPython
-chromadb
 langchain==0.2.16
 langchain-openai==0.1.25
-pydantic ==2.00
-chromadb==<latest_version>
+pydantic>=2.0.0
+faiss-cpu==1.7.4  # Use the latest compatible version
+

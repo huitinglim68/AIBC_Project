@@ -10,6 +10,5 @@ IPython
 chromadb
 langchain==0.2.16
 langchain-openai==0.1.25
-chromadb==0.4.0
 pydantic ==2.00
-
+chromadb==<latest_version>

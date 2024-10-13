@@ -26,7 +26,7 @@ logging.basicConfig(
 # --------------------------
 #load_dotenv(r"C:\streamlit_projects\myenv\.env")
 # Load the OpenAI API key from Streamlit secrets
-openai_api_key = st.secrets["openai_api_key"]
+openai_api_key = st.secrets["openai"]["openai_api_key"]
 
 if not openai_api_key:
     st.error("OpenAI API key not found. Please ensure it is properly set in the secrets.toml file.")

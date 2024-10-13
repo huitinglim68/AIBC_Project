@@ -24,11 +24,12 @@ logging.basicConfig(
 # --------------------------
 # 2. Load Environment Variables
 # --------------------------
-#load_dotenv(r"C:\streamlit_projects\myenv\.env")
-openai_api_key = st.secrets["openai"]["api_key"]
+# Load environment variables if using a .env file
+# load_dotenv(r"C:\streamlit_projects\myenv\.env")
+openai_api_key = st.secrets.get("openai", {}).get("api_key")
 
 if not openai_api_key:
-    st.error("OpenAI API key not found. Please ensure it is properly set in the .env file.")
+    st.error("OpenAI API key not found. Please ensure it is properly set in the secrets.toml file.")
     st.stop()
 
 # --------------------------
@@ -61,7 +62,7 @@ def fetch_hdb_resale_data():
         "https://www.hdb.gov.sg/residential/buying-a-flat/buying-procedure-for-resale-flats/resale-completion",
         "https://www.hdb.gov.sg/residential/buying-a-flat/conditions-after-buying"
     ]
-    
+
     headers = {
         "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -113,12 +114,14 @@ except Exception as e:
 # --------------------------
 try:
     vectorstore = Chroma.from_texts(
-        [doc for doc in documents],
+        documents,
         embeddings,
         collection_name='hdb_resale_procedure'
     )
 except Exception as e:
     logging.error(f"Error creating vector store: {e}")
+    st.error("Failed to create the vector store. Please check the logs.")
+    st.stop()
 
 # --------------------------
 # 7. Set Up Retrieval QA Chain
@@ -145,6 +148,8 @@ try:
     )
 except Exception as e:
     logging.error(f"Error setting up Retrieval QA chain: {e}")
+    st.error("Failed to set up the QA chain. Please check the logs.")
+    st.stop()
 
 # --------------------------
 # 8. Streamlit Chatbot Interface
@@ -152,11 +157,6 @@ except Exception as e:
 # Password check at the start of the app
 if not check_password():
     st.stop()
-
-# Create two columns: one for the title and one for the image
-col1, col2 = st.columns([3, 1])  # Adjust the ratios as needed
-
-import streamlit as st
 
 # Create two columns: one for the title and one for the image
 col1, col2 = st.columns([3, 1])  # Adjust the ratios as needed
@@ -183,5 +183,3 @@ if st.button("Get Answer"):
                 st.error("An error occurred while fetching the answer. Please try again later.")
     else:
         st.warning("Please enter a question.")
-
-

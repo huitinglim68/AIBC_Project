@@ -9,5 +9,5 @@ beautifulsoup4==4.12.3
 matplotlib==3.9.2
 IPython==8.10.0  
 plotly==5.13.0
-langchain==0.2.20  # Example version, adjust as needed
+langchain==0.2.20 
 

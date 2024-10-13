@@ -20,7 +20,7 @@ Introducing HDB PricePulse, your go-to tool for accurate HDB resale price estima
 """)
 
 # Define the path to your CSV file
-csv_file_path = "C:\\streamlit_projects\\myenv\\Resale_Dataset.csv"
+csv_file_path = "Resale_Dataset.csv"
 
 @st.cache_data
 def load_data(file_path):

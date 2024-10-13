@@ -183,3 +183,12 @@ if st.button("Get Answer"):
                 st.error("An error occurred while fetching the answer. Please try again later.")
     else:
         st.warning("Please enter a question.")
+
+# Testing Interface
+if st.button("Run Tests"):
+    with st.spinner("Running tests..."):
+        test_results = run_tests()
+        st.success("Tests completed!")
+        
+        for result in test_results:
+            st.write(result)

@@ -2,15 +2,15 @@ streamlit
 pandas==2.2.3
 numpy==1.26.4
 scikit-learn
-langchain==0.2.16
 langchain-openai==0.1.25
 python-dotenv
 requests
 beautifulsoup4==4.12.3
 matplotlib==3.9.2
 IPython
-pydantic>=1.9,<3.0.0
 chromadb
 fastapi
+langchain==0.3.0 
+pydantic>=2.0.0
 
 

@@ -24,8 +24,8 @@ logging.basicConfig(
 # --------------------------
 # 2. Load Environment Variables
 # --------------------------
-load_dotenv(r"C:\streamlit_projects\myenv\.env")
-openai_api_key = os.getenv("OPENAI_API_KEY")
+#load_dotenv(r"C:\streamlit_projects\myenv\.env")
+openai_api_key = st.secrets["openai"]["api_key"]
 
 if not openai_api_key:
     st.error("OpenAI API key not found. Please ensure it is properly set in the .env file.")

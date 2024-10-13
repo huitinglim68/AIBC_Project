@@ -10,7 +10,7 @@ st.markdown("### 🏨 **HDB Price Pulse**")
 st.markdown("<br>", unsafe_allow_html=True)
 
 # Insert Image 1
-st.image("C:\streamlit_projects\myenv\Images\Flow Chart 1.png", caption="Flow Chart 1", use_column_width=True)
+st.image("Images/Flow Chart 1.png", caption="Flow Chart 1", use_column_width=True)
 
 # Section for Ask Our Resale Genie
 st.markdown("### 🧞 **Ask Our Resale Genie**")
@@ -19,4 +19,4 @@ st.markdown("### 🧞 **Ask Our Resale Genie**")
 st.markdown("<br>", unsafe_allow_html=True)
 
 # Insert Image 2
-st.image("C:\streamlit_projects\myenv\Images\Flow Chart 2.png", caption="Flow Chart 2", use_column_width=True)
+st.image("Images/Flow Chart 2.png", caption="Flow Chart 2", use_column_width=True)

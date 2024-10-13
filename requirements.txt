@@ -10,5 +10,7 @@ IPython
 langchain==0.2.16
 langchain-openai==0.1.25
 pydantic>=2.0.0
-faiss-cpu==1.7.4  # Use the latest compatible version
+hnswlib==0.6.1  # Latest stable version at the time of writing
+swig
+
 

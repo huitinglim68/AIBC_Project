@@ -112,6 +112,17 @@ except Exception as e:
 # --------------------------
 # 6. Create Embeddings and Vector Store
 # --------------------------
+# try:
+#     vectorstore = Chroma.from_texts(
+#         documents,
+#         embeddings,
+#         collection_name='hdb_resale_procedure'
+#     )
+# except Exception as e:
+#     logging.error(f"Error creating vector store: {e}")
+#     st.error("Failed to create the vector store. Please check the logs.")
+#     st.stop()
+
 try:
     vectorstore = Chroma.from_texts(
         documents,
@@ -119,8 +130,8 @@ try:
         collection_name='hdb_resale_procedure'
     )
 except Exception as e:
-    logging.error(f"Error creating vector store: {e}")
-    st.error("Failed to create the vector store. Please check the logs.")
+    logging.error("Error creating vector store", exc_info=True)  # Log the full traceback
+    st.error(f"Failed to create the vector store: {str(e)}")
     st.stop()
 
 # --------------------------

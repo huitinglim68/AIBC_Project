@@ -165,7 +165,7 @@ with col1:
     st.title("Ask the Resale Genie")
 
 with col2:
-    st.image(r"C:\streamlit_projects\genie.png", width=100)  # Use the raw string to avoid issues
+    st.image("Images/genie.png", width=100)
 
 st.write("Ask any question related to the HDB Resale Procedure, and I'll provide you with an answer!")
 

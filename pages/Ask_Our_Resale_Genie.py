@@ -2,7 +2,7 @@ import streamlit as st
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
-from langchain.vectorstores import FAISS  # Changed from Chroma to FAISS
+from langchain.vectorstores import HNSWLib  # Changed from Chroma to HNSWLib
 from langchain_openai import OpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 import os
@@ -24,11 +24,12 @@ logging.basicConfig(
 # --------------------------
 # 2. Load Environment Variables
 # --------------------------
-load_dotenv(r"C:\streamlit_projects\myenv\.env")
-openai_api_key = os.getenv("OPENAI_API_KEY")
+#load_dotenv(r"C:\streamlit_projects\myenv\.env")
+# Load the OpenAI API key from Streamlit secrets
+openai_api_key = st.secrets["openai_api_key"]
 
 if not openai_api_key:
-    st.error("OpenAI API key not found. Please ensure it is properly set in the .env file.")
+    st.error("OpenAI API key not found. Please ensure it is properly set in the secrets.toml file.")
     st.stop()
 
 # --------------------------
@@ -112,9 +113,11 @@ except Exception as e:
 # 6. Create Embeddings and Vector Store
 # --------------------------
 try:
-    vectorstore = FAISS.from_texts(
+    vectorstore = HNSWLib.from_texts(
         [doc for doc in documents],
-        embeddings
+        embeddings,
+        space='cosine',  # Choose 'cosine' or 'l2' based on your similarity metric preference
+        dim=embeddings.embedding_dim  # Ensure this matches your embeddings' dimensionality
     )
 except Exception as e:
     logging.error(f"Error creating vector store: {e}")
@@ -157,7 +160,6 @@ if not check_password():
 # Create two columns: one for the title and one for the image
 col1, col2 = st.columns([3, 1])  # Adjust the ratios as needed
 
-# Create two columns: one for the title and one for the image
 with col1:
     st.title("Ask the Resale Genie")
 

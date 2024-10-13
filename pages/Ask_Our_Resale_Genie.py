@@ -2,7 +2,7 @@ import streamlit as st
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
-from langchain.vectorstores import HNSWLib  # Changed from Chroma to HNSWLib
+from langchain.vectorstores import FAISS  # Changed from HNSWLib to FAISS
 from langchain_openai import OpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 import os
@@ -113,11 +113,9 @@ except Exception as e:
 # 6. Create Embeddings and Vector Store
 # --------------------------
 try:
-    vectorstore = HNSWLib.from_texts(
+    vectorstore = FAISS.from_texts(
         [doc for doc in documents],
-        embeddings,
-        space='cosine',  # Choose 'cosine' or 'l2' based on your similarity metric preference
-        dim=embeddings.embedding_dim  # Ensure this matches your embeddings' dimensionality
+        embeddings
     )
 except Exception as e:
     logging.error(f"Error creating vector store: {e}")

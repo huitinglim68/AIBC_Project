@@ -9,6 +9,20 @@ from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 import os
 from dotenv import load_dotenv
+import logging
+from helper_functions.utility import check_password  # Import the check_password function
+
+# Password check at the start of the app
+if not check_password():
+    st.stop()
+    
+# 1. Configure Logging
+# --------------------------
+logging.basicConfig(
+    filename='app.log',
+    level=logging.ERROR,
+    format='%(asctime)s:%(levelname)s:%(message)s'
+)
 
 # --------------------------
 # 2. Load Environment Variables
@@ -20,16 +34,6 @@ openai_api_key = st.secrets["openai"]["openai_api_key"]
 if not openai_api_key:
     st.error("OpenAI API key not found. Please ensure it is properly set in the secrets.toml file.")
     st.stop()
-
-# # Function to check password
-# def check_password():
-#     """Check for a password input."""
-#     password = st.text_input("Password", type="password")
-#     if password == "your_password":  # Replace with your actual password
-#         return True
-#     else:
-#         st.warning("Incorrect password!")
-#         return False
 
 
 # Function to scrape recyclable materials from multiple NEA pages

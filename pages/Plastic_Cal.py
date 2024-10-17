@@ -57,7 +57,7 @@ def custom_css():
 custom_css()
 
 # Add an image banner (optional)
-st.image("https://www.example.com/your-banner-image.jpg", use_column_width=True)  # Replace with your own image link
+# st.image("https://www.example.com/your-banner-image.jpg", use_column_width=True)  # Replace with your own image link
 
 # Title and description
 st.markdown("# 🌍 Plastic Footprint Calculator")

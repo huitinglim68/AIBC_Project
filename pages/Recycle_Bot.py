@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import streamlit as st
 from langchain.vectorstores import FAISS
-from langchain.text_splitterx import CharacterTextSplitter
+from langchain.text_splitter import CharacterTextSplitter
 from langchain_openai import OpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain.chains import RetrievalQA

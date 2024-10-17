@@ -86,9 +86,3 @@ st.markdown("""
   - Calculation of total annual plastic waste with an animated progress bar.
   - Metrics to display total plastic waste in a visually appealing format.
 """)
-
-
-# Optionally, you can implement logic to navigate to the respective pages based on the button clicks.
-
-if __name__ == "__main__":
-    main()

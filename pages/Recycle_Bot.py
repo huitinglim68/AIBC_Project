@@ -13,8 +13,8 @@ import logging
 from helper_functions.utility import check_password  # Import the check_password function
 
 # # Password check at the start of the app
-# if not check_password():
-#     st.stop()
+if not check_password():
+    st.stop()
     
 # 1. Configure Logging
 # --------------------------

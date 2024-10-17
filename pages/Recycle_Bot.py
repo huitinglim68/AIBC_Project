@@ -10,9 +10,16 @@ from langchain.chains import RetrievalQA
 import os
 from dotenv import load_dotenv
 
-# Load environment variables for OpenAI API key
-load_dotenv(r"C:\streamlit_projects\myenv\.env")
-openai_api_key = os.getenv("OPENAI_API_KEY")
+# --------------------------
+# 2. Load Environment Variables
+# --------------------------
+#load_dotenv(r"C:\streamlit_projects\myenv\.env")
+# Load the OpenAI API key from Streamlit secrets
+openai_api_key = st.secrets["openai"]["openai_api_key"]
+
+if not openai_api_key:
+    st.error("OpenAI API key not found. Please ensure it is properly set in the secrets.toml file.")
+    st.stop()
 
 # # Function to check password
 # def check_password():

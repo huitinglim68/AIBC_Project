@@ -87,23 +87,6 @@ st.markdown("""
   - Metrics to display total plastic waste in a visually appealing format.
 """)
 
-# Call to Action
-st.markdown("## 🚀 Get Started!")
-st.markdown("""
-Explore the **NEA Recycling Chatbot** to learn about recyclable materials or use the **Plastic Footprint Calculator** to evaluate your plastic waste. 
-Click on the respective buttons below to dive into each feature!
-""")
-
-# Create buttons to navigate to the chatbot and calculator
-col1, col2 = st.columns(2)
-
-with col1:
-    if st.button("Go to NEA Recycling Chatbot"):
-        st.session_state.page = "chatbot"  # This can be used to navigate to your chatbot page
-
-with col2:
-    if st.button("Go to Plastic Footprint Calculator"):
-        st.session_state.page = "calculator"  # This can be used to navigate to your calculator page
 
 # Optionally, you can implement logic to navigate to the respective pages based on the button clicks.
 

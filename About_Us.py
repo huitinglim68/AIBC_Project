@@ -88,7 +88,7 @@ st.markdown("""
   - Metrics to display total plastic waste in a visually appealing format.
 """)
 
-st.markdown("##Disclaimer")
+st.markdown("## Disclaimer")
 st.markdown("""
 IMPORTANT NOTICE: This web application is a prototype developed for educational purposes only. The information provided here is NOT intended for real-world usage and should not be relied upon for making any decisions, especially those related to financial, legal, or healthcare matters.
 

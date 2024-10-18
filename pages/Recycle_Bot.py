@@ -34,7 +34,44 @@ openai_api_key = st.secrets["openai"]["openai_api_key"]
 if not openai_api_key:
     st.error("OpenAI API key not found. Please ensure it is properly set in the secrets file.")
     st.stop()
+# Custom CSS for styling
+def custom_css():
+    st.markdown("""
+    <style>
+    /* Add custom fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+    }
+    
+    h1, h2, h3 {
+        color: #6C63FF;
+    }
+    
+    .stButton button {
+        background-color: #6C63FF;
+        color: white;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+    
+    .stNumberInput input {
+        border: 2px solid #6C63FF;
+        border-radius: 5px;
+    }
+    
+    .stTextInput {
+        border-radius: 5px;
+        padding: 10px;
+    }
+    
+    </style>
+    """, unsafe_allow_html=True)
+
+# Call the function to apply custom CSS
+custom_css()
 
 # Function to scrape recyclable materials from multiple NEA pages
 @st.cache_data(ttl=3600)  # Cache data for 1 hour

@@ -32,7 +32,7 @@ logging.basicConfig(
 openai_api_key = st.secrets["openai"]["openai_api_key"]
 
 if not openai_api_key:
-    st.error("OpenAI API key not found. Please ensure it is properly set in the secrets.toml file.")
+    st.error("OpenAI API key not found. Please ensure it is properly set in the secrets file.")
     st.stop()
 
 
@@ -81,7 +81,7 @@ def setup_qa_chain(vectorstore, llm):
 
 # Main Streamlit app
 def main():
-    st.title("NEA Recycling Chatbot")
+    st.title("Recycling Chatbot")
     
     # Add a subheader for better organization
     st.subheader("Ask any question about recyclable materials in Singapore!")

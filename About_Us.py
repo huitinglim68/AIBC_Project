@@ -40,7 +40,7 @@ custom_css()
 
 # Title and banner
 st.title("Project Overview: NEA Recycling Chatbot & Plastic Footprint Calculator")
-st.image("https://www.example.com/your-banner-image.jpg", use_column_width=True)  # Replace with your own image link
+# st.image("https://www.example.com/your-banner-image.jpg", use_column_width=True)  # Replace with your own image link
 
 # Project Scope
 st.markdown("## 📊 Project Scope")

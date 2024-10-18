@@ -40,9 +40,9 @@ if not openai_api_key:
 @st.cache_data(ttl=3600)  # Cache data for 1 hour
 def scrape_nea_data():
     urls = [
-        "https://www.nea.gov.sg/our-services/waste-management/recycling",
-        "https://www.nea.gov.sg/our-services/waste-management/recycling/what-can-i-recycle",
-        "https://www.nea.gov.sg/our-services/waste-management/recycling/recycling-facilities"
+        "https://www.nea.gov.sg/our-services/waste-management/donation-resale-and-repair-channels",
+        "https://www.nea.gov.sg/our-services/waste-management/waste-collection-systems",
+        "https://www.nea.gov.sg/our-services/waste-management/3r-programmes-and-resources/types-of-recyclables-and-recycling-processes"
     ]
     recyclable_materials = []
     for url in urls:

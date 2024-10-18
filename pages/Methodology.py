@@ -52,7 +52,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.image("images/Flow Chart 1.PNG", caption="Flow Chart 1", use_column_width=True)
 
 # Section for Recycling Bot
-st.markdown("### ** Recycling Bot**")
+st.markdown("### **Recycling Bot**")
 
 # Add space using HTML line break
 st.markdown("<br>", unsafe_allow_html=True)
